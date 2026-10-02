@@ -26,7 +26,8 @@ window.WEDDING = {
   "doorPhoto": "img/b017.jpg",
   "doorPhotoMobile": "img/b014.jpg",
   "groom": {
-    "name": "Đaminh Văn Thuận",
+    "name": "Văn Thuận",
+    "saintName": "Đaminh Văn Thuận",
     "father": "",
     "mother": "Maria Ngô Thị Lan",
     "home": "Xã Phú Xuân, Tỉnh Đăk Lăk",
@@ -46,7 +47,8 @@ window.WEDDING = {
     ]
   },
   "bride": {
-    "name": "Maria Thanh Thuỳ",
+    "name": "Thanh Thuỳ",
+    "saintName": "Maria Thanh Thuỳ",
     "father": "Simon Nguyễn Văn Thành",
     "mother": "Maria Phạm Thị Mơ",
     "home": "Xã Quảng Sơn, Tỉnh Lâm Đồng",
