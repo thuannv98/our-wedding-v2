@@ -28,7 +28,7 @@
   /* the words on the red panel, read off the same mark */
   /* the closing picture is read through a wash, not behind one: the gold keeps its
      contrast and the page stays as light as the sections before it */
-  --thanks-scrim: rgb(255 255 255 / 0.74);
+  --thanks-scrim: rgb(255 255 255 / 0.84);
   --door-ink: #f7e7c8;
   --door-ink-soft: rgb(247 231 200 / 0.55);
   --door-ink-wash: rgb(247 231 200 / 0.14);                /* read off the double-happiness panel itself */

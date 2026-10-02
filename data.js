@@ -111,7 +111,8 @@ window.WEDDING = {
     "img/6E7A1013.jpg",
     "img/6E7A1115.jpg",
     "img/6E7A1232.jpg",
-    "img/b079.jpg"
+    "img/b079.jpg",
+    "img/6E7A1363.jpg"
   ],
   "text": {
     "openInvite": "Chạm để mở thiệp",
@@ -119,7 +120,7 @@ window.WEDDING = {
     "ourStory": "Trăm triệu hạt mưa rơi, không hạt nào rơi nhầm chỗ. Tất cả người ta từng gặp, không một người nào là ngẫu nhiên, người đến bởi nợ đầy, người đi bởi duyên cạn, mọi thứ đều là duyên phận an bài, chúng ta trở thành vợ chồng cũng chính là vì đủ duyên",
     "invitation": "Đến hiệp dâng Thánh lễ Hôn phối và tham dự buổi tiệc chung vui cùng gia đình chúng mình",
     "foreword": "Bữa tiệc được nâng niu, chỉn chu từng chi tiết đang chờ bạn đến tận hưởng khoảnh khắc thiêng liêng nhất trong cuộc đời chúng mình. Sẽ trọn vẹn hơn khi bạn cùng chúng mình ghi lại ký ức vô giá này.",
-    "rsvpLead": "Sự có mặt của bạn là niềm vui lớn đối với chúng tôi. Vui lòng xác nhận để buổi tiệc được chuẩn bị thật chỉn chu nhé!"
+    "rsvpLead": "Sự có mặt của bạn là niềm vui lớn đối với chúng mình. Vui lòng xác nhận để buổi tiệc được chuẩn bị thật chỉn chu nhé!"
   },
   "wishRelations": [
     "Bạn của cô dâu",

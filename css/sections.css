@@ -380,6 +380,11 @@
 .ceremony__where { top: 53.44%; width: 63.66%; }
 
 .ceremony__btn {
+  /* The buttons sit inside .ceremony__actions, so `.ceremony > *` never reached them:
+     that rule matches the DOM, and `display: contents` on the wrapper only changes the
+     box tree. Left static they ignored every percentage below and piled up at the top
+     of the card, over the title. Each says where it stands itself. */
+  position: absolute; z-index: 1;
   top: 74.96%; width: 34.41%; height: 15.65%;
   display: grid; place-items: center;
   border: 1px solid var(--card-edge);
@@ -442,7 +447,7 @@
     grid-column: 1 / -1;
     margin-top: 4px;
   }
-  .ceremony__btn { flex: 1 1 0; height: 26px; font-size: 11px; }
+  .ceremony__btn { position: static; flex: 1 1 0; height: 26px; font-size: 11px; }
 }
 
 /* our story ---------------------------------------------------------------- */

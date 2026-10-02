@@ -134,7 +134,7 @@
    name themselves so the picture cannot paint over the words it is behind. */
 .closing { position: relative; isolation: isolate; overflow: hidden; padding: 0 var(--gutter); }
 .closing__photo, .closing__scrim { position: absolute; inset: 0; z-index: -1; }
-.closing__photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; }
+.closing__photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 34%;   /* their faces, not the dress */ }
 .closing__scrim { background: var(--thanks-scrim); }
 .closing > .container, .closing > .thanks { position: relative; z-index: 1; }
 
