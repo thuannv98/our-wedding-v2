@@ -9,7 +9,7 @@
  * `form.endpoint` empty means the forms only remember answers in the guest's browser.
  */
 window.WEDDING = {
-  "pageTitle": "Happy Wedding - Văn Thuận - Thanh Thùy",
+  "pageTitle": "Happy Wedding - Văn Thuận & Thanh Thùy",
   "cover": {
     "photo": "img/6E7A0968.jpg",
     "kicker": "Save The Date",
@@ -26,7 +26,7 @@ window.WEDDING = {
   "doorPhoto": "img/b017.jpg",
   "doorPhotoMobile": "img/b014.jpg",
   "groom": {
-    "name": "Văn Thuận",
+    "name": "Đaminh Văn Thuận",
     "father": "",
     "mother": "Maria Ngô Thị Lan",
     "home": "Xã Phú Xuân, Tỉnh Đăk Lăk",
@@ -46,7 +46,7 @@ window.WEDDING = {
     ]
   },
   "bride": {
-    "name": "Thanh Thuỳ",
+    "name": "Maria Thanh Thuỳ",
     "father": "Simon Nguyễn Văn Thành",
     "mother": "Maria Phạm Thị Mơ",
     "home": "Xã Quảng Sơn, Tỉnh Lâm Đồng",
