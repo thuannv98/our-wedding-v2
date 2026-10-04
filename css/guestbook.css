@@ -325,7 +325,9 @@
   box-shadow: 0 1px 0 var(--note-line), var(--shadow);
   overflow: auto;
 }
-.wishfull[open] { position: relative; }
+/* The browser holds a modal dialog fixed and centred on its own. Giving it a position
+   here put it back in the flow at the foot of the document, and opening it carried the
+   page down there with it. It is already a containing block for the close button. */
 .wishfull__close {
   position: absolute; top: 6px; right: 10px;
   border: 0; background: none; cursor: pointer;
