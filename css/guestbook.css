@@ -268,9 +268,13 @@
   width: 268px; max-width: calc(100vw - var(--gutter) * 2);
   padding: 12px 15px 10px;
   border-radius: 4px;
-  background: var(--paper);
   box-shadow: 0 1px 0 var(--note-line), var(--shadow);
+  /* The ruled lines stop where the words stop. Two clips, one per layer: the lines keep
+     to the content box so they do not run out to the edges of the card, while the paper
+     behind them fills it corner to corner. */
+  background-color: var(--paper);
   background-image: repeating-linear-gradient(180deg, transparent 0 25px, var(--rule) 25px 26px);
+  background-clip: content-box, border-box;
   background-position: 0 7px;
   transform: translateX(calc(100% + var(--gutter)));
   opacity: 0;
@@ -293,9 +297,13 @@
 }
 
 @media (min-width: 768px) {
-  .wisht { width: 300px; }
+  .wisht {
+    width: 300px;
+    background-image: repeating-linear-gradient(180deg, transparent 0 27px, var(--rule) 27px 28px);
+    background-position: 0 6px;
+  }
   .wisht__text { font-size: 14px; line-height: 28px; }
-  .wisht__by { font-size: 18px; }
+  .wisht__by { font-size: 18px; line-height: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) { .wisht { display: none; } }
