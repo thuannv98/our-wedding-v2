@@ -103,15 +103,14 @@
       if (!w?.wish) continue;
       const node = tpl.content.firstElementChild.cloneNode(true);
       node.querySelector(".note__text").textContent = w.wish;
-      node.querySelector(".note__by b").textContent = w.name || "Một người bạn";
-      const rel = node.querySelector(".note__relation");
-      if (w.relation) rel.textContent = w.relation; else rel.remove();
+      node.querySelector(".note__by").textContent = w.name || "Một người bạn";
       node.querySelector(".note__open")?.addEventListener("click", () => AK.openWish?.(w));
       frag.append(node);
     }
     if (!frag.childElementCount) return;
     if (first) box.prepend(frag); else box.append(frag);
     if (outer) outer.hidden = false;
+    if (AK.runCredits) AK.runCredits(box);
   }
 
   function loadWishes() {

@@ -257,7 +257,10 @@
   </div>
   <div class="container notes" id="wishes-box" hidden>
     <p class="notes__title">Lời chúc từ mọi người</p>
-    <ul class="notes__strip" id="wishes"></ul>
+    <!-- they run up through this window the way names run at the end of a film -->
+    <div class="notes__window">
+      <ul class="notes__track" id="wishes"></ul>
+    </div>
   </div>
 </section>
 
@@ -351,7 +354,7 @@
 <dialog class="wishfull" id="wish-full">
   <button class="wishfull__close" type="button" aria-label="Đóng">&times;</button>
   <p class="wishfull__text"></p>
-  <p class="wishfull__by"><b></b><span></span></p>
+  <p class="wishfull__by"></p>
 </dialog>
 
 <!-- the dock: music on the left, the two controls on the right ------------- -->
@@ -414,7 +417,7 @@
   <li class="note">
     <button class="note__open" type="button" aria-label="Đọc trọn lời chúc"></button>
     <p class="note__text"></p>
-    <p class="note__by"><b></b><span class="note__relation"></span></p>
+    <p class="note__by"></p>
   </li>
 </template>
 
@@ -430,6 +433,7 @@
 <script src="js/album.js"></script>
 <script src="js/portrait.js"></script>
 <script src="js/toast.js"></script>
+<script src="js/credits.js"></script>
 <script src="js/wish-full.js"></script>
 <script src="js/wish-toast.js"></script>
 <script src="js/forms.js"></script>

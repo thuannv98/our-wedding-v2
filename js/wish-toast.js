@@ -19,12 +19,11 @@
     el.className = "wisht";
     el.setAttribute("role", "status");
     el.hidden = true;
-    el.innerHTML = '<p class="wisht__text"></p><p class="wisht__by"><b></b><span></span></p>';
+    el.innerHTML = '<p class="wisht__text"></p><p class="wisht__by"></p>';
     document.body.appendChild(el);
 
     var text = el.querySelector(".wisht__text");
-    var who = el.querySelector(".wisht__by b");
-    var rel = el.querySelector(".wisht__by span");
+    var who = el.querySelector(".wisht__by");
 
     var at = 0, timer = null, bookInView = false, current = null;
 
@@ -56,7 +55,6 @@
       current = w;
       text.textContent = w.wish;
       who.textContent = w.name || "Một người bạn";
-      rel.textContent = w.relation ? " · " + w.relation : "";
       el.hidden = false;
       // the class goes on after the element is laid out, or there is nothing to animate from
       requestAnimationFrame(function () { el.classList.add("is-in"); });
