@@ -119,7 +119,11 @@
     const url = endpoint + (endpoint.includes("?") ? "&" : "?") + "what=wishes";
     fetch(url)
       .then((r) => (r.ok ? r.json() : []))
-      .then((list) => addWishes(Array.isArray(list) ? list : []))
+      .then((list) => {
+        const wishes = Array.isArray(list) ? list : [];
+        addWishes(wishes);
+        if (AK.startWishToasts) AK.startWishToasts(wishes);
+      })
       .catch(() => { /* a guest should see the form, not a failure to load */ });
   }
 

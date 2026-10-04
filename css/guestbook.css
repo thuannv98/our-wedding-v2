@@ -226,3 +226,44 @@
   .note__text { font-size: 16px; }
   .note__by { font-size: 22px; }
 }
+
+/* A wish drifting past the corner of the page ------------------------------ */
+/* Low and to the left, clear of the music button under it and of the two controls on
+   the other side. It slides in from off the edge and leaves the same way. */
+.wisht {
+  position: fixed;
+  left: var(--gutter);
+  bottom: calc(var(--gutter) + 62px + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  width: 268px; max-width: calc(100vw - var(--gutter) * 2);
+  padding: 12px 15px 10px;
+  border-radius: 4px;
+  background: var(--paper);
+  box-shadow: 0 1px 0 var(--note-line), var(--shadow);
+  background-image: repeating-linear-gradient(180deg, transparent 0 25px, var(--rule) 25px 26px);
+  background-position: 0 13px;
+  transform: translateX(calc(-100% - var(--gutter)));
+  opacity: 0;
+  transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+}
+.wisht.is-in { transform: translateX(0); opacity: 1; }
+
+.wisht__text {
+  margin: 0; font-size: 13px; line-height: 26px;
+  color: var(--ink);
+  overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+}
+.wisht__by {
+  margin: 6px 0 0; text-align: right;
+  font-family: var(--font-display); font-size: 16px; color: var(--gold);
+}
+.wisht__by span { font-family: var(--font-body); font-size: var(--fs-small); color: var(--ink-soft); }
+
+@media (min-width: 768px) {
+  .wisht { width: 300px; bottom: calc(var(--gutter) + 70px + env(safe-area-inset-bottom, 0px)); }
+  .wisht__text { font-size: 14px; line-height: 28px; }
+  .wisht__by { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .wisht { display: none; } }
