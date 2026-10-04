@@ -26,7 +26,15 @@
     var who = el.querySelector(".wisht__by b");
     var rel = el.querySelector(".wisht__by span");
 
-    var at = 0, timer = null, bookInView = false;
+    var at = 0, timer = null, bookInView = false, current = null;
+
+    // a card cut short is still worth reading: tapping it opens the whole wish, and the
+    // card goes at once rather than sliding out from under the sheet
+    el.addEventListener("click", function () {
+      if (!current) return;
+      hide();
+      if (AK.openWish) AK.openWish(current);
+    });
 
     // typing a wish of your own, or reading the ones already there, is not the moment
     function quiet() {
@@ -45,6 +53,7 @@
       var w = list[at % list.length];
       at++;
       if (!w || !w.wish) { next(0); return; }
+      current = w;
       text.textContent = w.wish;
       who.textContent = w.name || "Một người bạn";
       rel.textContent = w.relation ? " · " + w.relation : "";

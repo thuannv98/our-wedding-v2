@@ -347,6 +347,13 @@
   <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Ảnh sau"></button>
 </dialog>
 
+<!-- a wish read in full, from the strip or from one drifting past ---------- -->
+<dialog class="wishfull" id="wish-full">
+  <button class="wishfull__close" type="button" aria-label="Đóng">&times;</button>
+  <p class="wishfull__text"></p>
+  <p class="wishfull__by"><b></b><span></span></p>
+</dialog>
+
 <!-- the dock: music on the left, the two controls on the right ------------- -->
 <button class="music" id="music" type="button" aria-pressed="false" aria-label="Bật tắt nhạc">
   <svg class="music__note" viewBox="0 0 24 24" aria-hidden="true">
@@ -405,6 +412,7 @@
 
 <template id="tpl-wish">
   <li class="note">
+    <button class="note__open" type="button" aria-label="Đọc trọn lời chúc"></button>
     <p class="note__text"></p>
     <p class="note__by"><b></b><span class="note__relation"></span></p>
   </li>
@@ -422,6 +430,7 @@
 <script src="js/album.js"></script>
 <script src="js/portrait.js"></script>
 <script src="js/toast.js"></script>
+<script src="js/wish-full.js"></script>
 <script src="js/wish-toast.js"></script>
 <script src="js/forms.js"></script>
 <script src="js/music.js"></script>

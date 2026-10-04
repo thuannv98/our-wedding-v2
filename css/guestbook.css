@@ -171,7 +171,15 @@
   flex: 1 1 auto; overflow: hidden;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5;
 }
-.note__by { font-family: var(--font-display); color: var(--gold); text-align: right; }
+.note { position: relative; }
+/* the whole note is the target, laid over it rather than wrapping it, so the text keeps
+   its own box and the ruled lines behind it are not disturbed */
+.note__open { position: absolute; inset: 0; z-index: 1; border: 0; background: none; cursor: pointer; }
+.note__by {
+  font-family: var(--font-display); color: var(--gold);
+  display: grid; justify-items: end; gap: 1px; line-height: 1.25;
+}
+.note__by b { font-weight: 400; }
 .note__relation { color: var(--ink-soft); font-family: var(--font-body); font-size: var(--fs-small); }
 
 /* the two sizes the book was drawn at --------------------------------------- */
@@ -232,6 +240,7 @@
    the other side. It slides in from off the edge and leaves the same way. */
 .wisht {
   position: fixed;
+  cursor: pointer;
   left: var(--gutter);
   bottom: calc(var(--gutter) + 62px + env(safe-area-inset-bottom, 0px));
   z-index: 45;
@@ -252,12 +261,15 @@
   margin: 0; font-size: 13px; line-height: 26px;
   color: var(--ink);
   overflow: hidden;
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5;
 }
 .wisht__by {
-  margin: 6px 0 0; text-align: right;
+  margin: 8px 0 0;
+  display: grid; justify-items: end; gap: 1px;
   font-family: var(--font-display); font-size: 16px; color: var(--gold);
+  line-height: 1.25;
 }
+.wisht__by b { font-weight: 400; text-align: right; }
 .wisht__by span { font-family: var(--font-body); font-size: var(--fs-small); color: var(--ink-soft); }
 
 @media (min-width: 768px) {
@@ -267,3 +279,38 @@
 }
 
 @media (prefers-reduced-motion: reduce) { .wisht { display: none; } }
+
+/* a wish read in full ------------------------------------------------------ */
+.wishfull {
+  width: min(520px, calc(100vw - var(--gutter) * 2));
+  max-height: 80vh;
+  margin: auto;
+  padding: 26px 24px 20px;
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 1px 0 var(--note-line), var(--shadow);
+  overflow: auto;
+}
+.wishfull[open] { position: relative; }
+.wishfull__close {
+  position: absolute; top: 6px; right: 10px;
+  border: 0; background: none; cursor: pointer;
+  font-size: 26px; line-height: 1; color: var(--ink-soft);
+}
+.wishfull__text {
+  margin: 0; font-size: 15px; line-height: 28px; color: var(--ink);
+  white-space: pre-wrap;
+}
+.wishfull__by {
+  margin: 16px 0 0;
+  display: grid; justify-items: end; gap: 1px; line-height: 1.25;
+  font-family: var(--font-display); font-size: 19px; color: var(--gold);
+}
+.wishfull__by b { font-weight: 400; }
+.wishfull__by span { font-family: var(--font-body); font-size: var(--fs-small); color: var(--ink-soft); }
+
+@media (min-width: 768px) {
+  .wishfull { padding: 30px 30px 24px; }
+  .wishfull__text { font-size: 17px; line-height: 32px; }
+  .wishfull__by { font-size: 22px; }
+}

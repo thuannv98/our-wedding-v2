@@ -105,7 +105,8 @@
       node.querySelector(".note__text").textContent = w.wish;
       node.querySelector(".note__by b").textContent = w.name || "Một người bạn";
       const rel = node.querySelector(".note__relation");
-      if (w.relation) rel.textContent = ` · ${w.relation}`; else rel.remove();
+      if (w.relation) rel.textContent = w.relation; else rel.remove();
+      node.querySelector(".note__open")?.addEventListener("click", () => AK.openWish?.(w));
       frag.append(node);
     }
     if (!frag.childElementCount) return;
