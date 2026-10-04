@@ -113,16 +113,43 @@
     if (AK.runCredits) AK.runCredits(box);
   }
 
+  // Apps Script answers in a second or two warm and a good deal longer cold, which is a
+  // long time to look at a page with no wishes on it. What came back last time is kept
+  // here and shown at once, then replaced the moment the real answer lands.
+  const KEPT = "ak:wishes";
+
+  function remember(list) {
+    try { localStorage.setItem(KEPT, JSON.stringify(list)); } catch { /* private window */ }
+  }
+  function recall() {
+    try {
+      const kept = JSON.parse(localStorage.getItem(KEPT) || "[]");
+      return Array.isArray(kept) ? kept : [];
+    } catch { return []; }
+  }
+
+  function showWishes(list) {
+    const box = document.getElementById("wishes");
+    if (box) box.replaceChildren();
+    addWishes(list);
+    if (AK.startWishToasts) AK.startWishToasts(list);
+  }
+
   function loadWishes() {
     const endpoint = get("form.endpoint");
+    const kept = recall();
+    if (kept.length) showWishes(kept);
     if (!endpoint || typeof fetch !== "function") return;
+
     const url = endpoint + (endpoint.includes("?") ? "&" : "?") + "what=wishes";
     fetch(url)
-      .then((r) => (r.ok ? r.json() : []))
+      .then((r) => (r.ok ? r.json() : null))
       .then((list) => {
-        const wishes = Array.isArray(list) ? list : [];
-        addWishes(wishes);
-        if (AK.startWishToasts) AK.startWishToasts(wishes);
+        if (!Array.isArray(list)) return;
+        remember(list);
+        // nothing to redraw if the answer says what the page already shows
+        if (JSON.stringify(list) === JSON.stringify(kept)) return;
+        showWishes(list);
       })
       .catch(() => { /* a guest should see the form, not a failure to load */ });
   }
