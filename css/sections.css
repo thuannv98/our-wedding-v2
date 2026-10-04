@@ -465,14 +465,14 @@
    turn over inside one shape that never changes size. */
 .story__flip {
   position: relative;
-  width: 100%;
+  width: 66.7%; margin-inline: auto;
   aspect-ratio: 0.8239;
   perspective: 1400px;
 }
 .story__face {
   position: absolute; inset: 0;
   backface-visibility: hidden;
-  transition: transform 0.9s var(--ease);
+  transition: transform 1.5s var(--ease);
   transform-style: preserve-3d;
 }
 .story__face--one { transform: rotateY(0deg); }
@@ -529,7 +529,7 @@
 @media (max-width: 767px) {
   /* on a phone the cluster is nearly the full width and the words sit under it */
   .story { padding-block: 34px; }
-  .story__flip { aspect-ratio: 0.766; width: 92.4%; margin-inline: auto; }
+  .story__flip { aspect-ratio: 0.766; width: 61.6%; }   /* two thirds of the 92.4 it filled */
   .story__words { padding-top: var(--space-4); }
 }
 
