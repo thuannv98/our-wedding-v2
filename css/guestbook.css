@@ -269,11 +269,13 @@
   padding: 12px 15px 10px;
   border-radius: 4px;
   box-shadow: 0 1px 0 var(--note-line), var(--shadow);
-  /* The ruled lines stop where the words stop. Two clips, one per layer: the lines keep
-     to the content box so they do not run out to the edges of the card, while the paper
-     behind them fills it corner to corner. */
-  background-color: var(--paper);
-  background-image: repeating-linear-gradient(180deg, transparent 0 25px, var(--rule) 25px 26px);
+  /* The ruled lines stop where the words stop, and the paper behind them fills the card
+     corner to corner. That needs two layers, not a layer and a background-color: the
+     number of layers comes from background-image alone, so with one image the second
+     clip is dropped and the colour is cut to the content box with the lines. */
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 25px, var(--rule) 25px 26px),
+    linear-gradient(var(--paper), var(--paper));
   background-clip: content-box, border-box;
   background-position: 0 7px;
   transform: translateX(calc(100% + var(--gutter)));
@@ -299,7 +301,11 @@
 @media (min-width: 768px) {
   .wisht {
     width: 300px;
-    background-image: repeating-linear-gradient(180deg, transparent 0 27px, var(--rule) 27px 28px);
+    /* both layers again: naming only the ruling here would leave one layer and take the
+       paper with it */
+    background-image:
+      repeating-linear-gradient(180deg, transparent 0 27px, var(--rule) 27px 28px),
+      linear-gradient(var(--paper), var(--paper));
     background-position: 0 6px;
   }
   .wisht__text { font-size: 14px; line-height: 28px; }
