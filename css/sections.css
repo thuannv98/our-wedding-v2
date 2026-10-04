@@ -517,7 +517,8 @@
 .story__photo:nth-child(2), .story__photo:nth-child(4) { z-index: 1; }
 
 .story__words { display: grid; gap: var(--space-3); text-align: left; }
-.story__words h2 { text-align: left; }
+/* the heading over the middle of the block, the paragraphs still ranged left */
+.story__words h2 { text-align: center; }
 /* three paragraphs now, set apart from each other but closer than the heading is */
 .story__text { display: grid; gap: var(--space-2); }
 
