@@ -484,7 +484,10 @@
 /* The drawing keeps its own proportions, is framed like the photographs, and sits in
    the middle of the box both ways. Two thirds of the height, so it reads as one picture
    rather than filling the room the four of them share. */
-.story__face--one { display: grid; place-items: center; }
+/* The row is told to be the full height of the face. Left as `auto` it takes its size
+   from the picture inside it, so the picture's own percentage height had nothing fixed
+   to measure against: it came out taller than the box it sits in and hung out below. */
+.story__face--one { display: grid; grid-template-rows: 100%; place-items: center; }
 .story__drawing {
   height: 83.4%; width: auto; max-width: 100%;
   object-fit: contain;
